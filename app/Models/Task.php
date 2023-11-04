@@ -12,4 +12,5 @@ class Task extends Model
     use SoftDeletes;
 
     protected $table = 'tasks';
+
 }
