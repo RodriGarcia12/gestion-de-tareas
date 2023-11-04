@@ -18,6 +18,7 @@ class CreateTasksTable extends Migration
             $table->id();
             $table->string('title');
             $table->longtext('body');
+            $table->string('state');
             $table->unsignedBigInteger('author_id');
             $table->unsignedBigInteger('user-assigned_id');
             $table->timestamps();
