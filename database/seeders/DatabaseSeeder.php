@@ -44,7 +44,7 @@ class DatabaseSeeder extends Seeder
             'body' => 'Cuerpo de la tarea con id 1 asignado a usuario 1',
             'state' => 'Asignada',
             'author_id' => '3',
-            'user-assigned_id' => '1'
+            'user_assigned_id' => '1'
         ]);
     }
 }

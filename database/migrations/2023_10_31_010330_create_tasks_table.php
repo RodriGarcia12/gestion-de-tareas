@@ -20,11 +20,11 @@ class CreateTasksTable extends Migration
             $table->longtext('body');
             $table->string('state');
             $table->unsignedBigInteger('author_id');
-            $table->unsignedBigInteger('user-assigned_id');
+            $table->unsignedBigInteger('user_assigned_id');
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('author_id', 'user-assigned_id')->references('id')->on('users');
+            $table->foreign('author_id', 'user_assigned_id')->references('id')->on('users');
         });
     }
 
