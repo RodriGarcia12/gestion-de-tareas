@@ -17,27 +17,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
-            'id' => '1',
-            'name' => 'Pedro',
-            'email' => 'pedrito@gmail.com',
-            'password' => Hash::make('password')
-        ]);
-
-       User::create([
-            'id' => '2',
-            'name' => 'Franco',
-            'email' => 'franquito@gmail.com',
-            'password' => Hash::make('password')
-        ]);
-
-        User::create([
-            'id' => '3',
-            'name' => 'Rodrigo',
-            'email' => 'rodri@gmail.com',
-            'password' => Hash::make('1234')
-        ]);
-
         Task::create([
             'id' => '1',
             'title' => 'Tarea con id 1',
