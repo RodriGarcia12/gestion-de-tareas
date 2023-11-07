@@ -22,7 +22,20 @@ class TaskController extends Controller
     }
 
     public function Read(Request $request){
-        return $task = Task::all();
+        $tasks = Task::all();
+        $taskData = [];
+
+        foreach($tasks as $task){
+            $tasksData[] = [
+                'id' => $task -> id,
+                'title' => $task -> title,
+                'body' => $task -> body,
+                'state' => $task -> state,
+                'authorId' => $this -> getData($task -> author_id, $request),
+                'userAssignedId' => $this -> getData($task -> user_assigned_id, $request)
+            ];
+        }
+        return $tasksData;
     }
 
     public function Find(Request $request, $id){
@@ -47,5 +60,16 @@ class TaskController extends Controller
         $task -> delete();
 
         return ['message' => 'Deleted'];
+    }
+
+    private function getData($id, $request){
+        $tokenHeader = [
+            "Authorization" => $request -> header("Authorization"),
+            "Accept" => "application/json",
+            "Content-Type" => "application/json"
+        ];
+
+        $response = Http::withHeaders($tokenHeader) -> get ( "http://localhost:8000/api/v1/register/" . $id);
+        return $response -> json();
     }
 }
