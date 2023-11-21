@@ -13,7 +13,6 @@ class TaskController extends Controller
         $task = new Task();
         $task -> title = $request -> post('title');
         $task -> body = $request -> post('body');
-        $task -> state = $request -> post('state');
         $task -> author_id = $request -> post('authorId');
         $task -> user_assigned_id = $request -> post('userAssignedId');
         $task -> save();
@@ -69,7 +68,7 @@ class TaskController extends Controller
             "Content-Type" => "application/json"
         ];
 
-        $response = Http::withHeaders($tokenHeader) -> get ( "http://localhost:8000/api/v1/register/" . $id);
+        $response = Http::withHeaders($tokenHeader) -> get ( "http://localhost:8001/api/v1/register/" . $id);
         return $response -> json();
     }
 }

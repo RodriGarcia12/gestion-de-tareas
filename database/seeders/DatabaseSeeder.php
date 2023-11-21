@@ -21,7 +21,6 @@ class DatabaseSeeder extends Seeder
             'id' => '1',
             'title' => 'Tarea con id 1',
             'body' => 'Cuerpo de la tarea con id 1 asignado a usuario 1',
-            'state' => 'Asignada',
             'author_id' => '3',
             'user_assigned_id' => '1'
         ]);
