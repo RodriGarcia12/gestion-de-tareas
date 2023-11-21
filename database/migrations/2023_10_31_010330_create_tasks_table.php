@@ -23,8 +23,6 @@ class CreateTasksTable extends Migration
             $table->unsignedBigInteger('user_assigned_id');
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('author_id', 'user_assigned_id')->references('id')->on('users');
         });
     }
 
