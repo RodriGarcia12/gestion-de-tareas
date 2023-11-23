@@ -22,20 +22,7 @@ class TaskController extends Controller
     }
 
     public function Read(Request $request){
-        $tasks = Task::all();
-        $taskData = [];
-
-        foreach($tasks as $task){
-            $tasksData[] = [
-                'id' => $task -> id,
-                'title' => $task -> title,
-                'body' => $task -> body,
-                'state' => $task -> state,
-                'authorId' => $this -> getData($task -> author_id, $request),
-                'userAssignedId' => $this -> getData($task -> user_assigned_id, $request)
-            ];
-        }
-        return $tasksData;
+        return $tasks = Task::all();
     }
 
     public function Find(Request $request, $id){
