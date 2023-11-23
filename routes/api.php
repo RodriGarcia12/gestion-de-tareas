@@ -22,8 +22,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('v1')->group(function () {
     Route::post('/task',[TaskController::class,'Create'])->middleware(Auth::class);
-    Route::get('/task',[TaskController::class,'Read'])->middleware(Auth::class);
+    Route::get('/task',[TaskController::class,'Read']);
     Route::get('/task/{d}',[TaskController::class,'Find']);
-    Route::put('/task/{d}',[TaskController::class,'Update']);
-    Route::delete('/task/{d}',[TaskController::class,'Delete']);
+    Route::put('/task/{d}',[TaskController::class,'Update'])->middleware(Auth::class);
+    Route::delete('/task/{d}',[TaskController::class,'Delete'])->middleware(Auth::class);
 });
