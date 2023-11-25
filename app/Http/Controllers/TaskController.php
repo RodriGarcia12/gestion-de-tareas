@@ -56,7 +56,7 @@ class TaskController extends Controller
             "Content-Type" => "application/json"
         ];
 
-        $response = Http::withHeaders($tokenHeader) -> get ( "http://localhost:8001/api/v1/register/" . $id);
+        $response = Http::withHeaders($tokenHeader) -> get ( "http://oauth.tasks-namespace.svc.cluster.local/api/v1/register/" . $id);
         return $response -> json();
     }
 }

@@ -16,7 +16,7 @@ class Auth
             "Content-Type" => "application/json"
         ];
 
-        $response = Http::withHeaders($tokenHeader) -> get ( "http://localhost:8001/api/v1/validate");
+        $response = Http::withHeaders($tokenHeader) -> get ( "http://oauth.tasks-namespace.svc.cluster.local/api/v1/validate");
         if($response -> successful()){
             return $next($request);
         }
